@@ -56,11 +56,8 @@ tfoot th {
 <img src='D3.png' width=100% height=50%>
 <?php
 error_reporting(0);
-$user=explode('\\',$_SERVER['REMOTE_USER']);
-$username=$user[1];
-session_start();
-$_SESSION['validuser']=$username;
-echo "<h4 align=right>Welcome $username </h4>";
+
+echo "<h4 align=right>Welcome User </h4>";
 ?>
 <div id="wrapper">
 
@@ -73,18 +70,7 @@ echo "<h4 align=right>Welcome $username </h4>";
 echo"
 
 <form method='post' enctype='multipart/form-data'>";
-
-
-$con=mysqli_connect("localhost","root","","ditvm");
-if(mysqli_connect_errno($con))
-{
-echo "Failed to connect to MySQL:".mysqli_connect_error();
-}
-else
-{
-$query=mysqli_query($con,"select * from sould3 where name='$username'");
-$r=mysqli_fetch_row($query);
-
+$r=0;
 if($r){
 	
 $myfile = fopen("InputD3.txt", "r") or die ("Not made any doc uploads");;
@@ -159,21 +145,6 @@ $data="$na1#$target_fileloc#$titles#$descrip\n";
 $FH=fopen("InputD3.txt","at");        
 fwrite($FH,$data);
 fclose($FH);
-
-
-$con=mysqli_connect("localhost","root","","ditvm");
-if(mysqli_connect_errno($con))
-{
-echo "Failed to connect to MySQL:".mysqli_connect_error();
-}
-else
-{
-
-$query4=mysqli_query($con,"insert into sould3 values('$na1','$target_file','$descrip','S')");
-$r1=mysqli_fetch_row($query4);
-
-
-}
 
 	
     if($check !== false) {
