@@ -77,7 +77,9 @@ echo"
 
 <form method='post' enctype='multipart/form-data'>";
 
-
+<div class="container">
+  <div class="row">
+    <div class="col-sm-4">
 echo"<br>
 <h4 align=center>Name the document with your employee id before you upload. eg. 152245.docx</h4>
 <table align=center border=1>
@@ -88,6 +90,9 @@ echo"<br>
 
 <tr align=center><td colspan=2 style=text-align:center><input type='submit' value='Upload Idea' name='submit' ></tr>
 </table>
+</div>
+  </div>
+</div>
 </form>
 <br>
 
