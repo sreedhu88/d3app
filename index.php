@@ -70,33 +70,7 @@ echo "<h4 align=right>Welcome User </h4>";
 echo"
 
 <form method='post' enctype='multipart/form-data'>";
-$r=0;
-if($r){
-	
-$myfile = fopen("InputD3.txt", "r") or die ("Not made any doc uploads");;
 
-echo"<table align=center border=1 cellpadding=2 cellspacing=2>
-<tr><th>Name  <th>FileName  <th>Title <th> Description";
-while(!feof($myfile)) {
-$value=fgets($myfile);
-if ($value!=""){
-
-$val=explode('#',$value);
-if($val[0] ==$username){
-	
-echo "<tr><td>$val[0] <td>$val[1] <td>$val[2]<td>$val[3]</tr>";
-
-
-}
-}
-}
-echo"</table></font>";
-fclose($myfile);
-
-echo "<hr><center><b>Thanks for submitting the idea. We shall get back to you soon!<b></center>";
-}
-	
-else{
 
 echo"<br>
 <h4 align=center>Name the document with your employee id before you upload. eg. 152245.docx</h4>
@@ -112,8 +86,7 @@ echo"<br>
 <br>
 
 ";
-}
-}	
+
 
 ?>
 
@@ -145,7 +118,6 @@ $data="$na1#$target_fileloc#$titles#$descrip\n";
 $FH=fopen("InputD3.txt","at");        
 fwrite($FH,$data);
 fclose($FH);
-
 	
     if($check !== false) {
         //echo "File is an image - " . $check["mime"] . ".";
